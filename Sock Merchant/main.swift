@@ -10,12 +10,13 @@ import Foundation
 func sockMerchant(n: Int, ar: [Int]) -> Int {
     var result: Int = 0
     var array = ar
-    print(ar.count)
-    var a = 0
-    for i in 0 ..< ar.count-1 {
+    let a = 0
+//    for i in 0 ..< array.count-1 {
         //var a = array[i]
+  while array.count != 0{
     var sum = 0
-    var num = array.count
+    //var num = array.count
+
         while sum != array.count-1 {
             if array[a] == array[sum+1]{
                 result += 1
@@ -24,8 +25,8 @@ func sockMerchant(n: Int, ar: [Int]) -> Int {
                 print("array[sum+1] = \(array[sum+1])")
                 print("result = \(result)")
                 array.remove(at: sum+1)
-                array.removeFirst()
-                num -= 2
+                //array.removeFirst()
+               // num -= 2
                 //print("\(sum) \(array[i]) \(array[num])")
                 break
                 //array.removeFirst()
@@ -37,13 +38,17 @@ func sockMerchant(n: Int, ar: [Int]) -> Int {
                 sum += 1
                 //i += 1
             }
-            
         }
+        guard array.count != 0 else {
+            return result
+        }
+        array.removeFirst()
     }
+    
     print(result)
     return result
 }
 
 
-print(sockMerchant(n: 9, ar: [10, 20, 20, 10, 10, 30, 50, 10, 20, 10,10,20,10,10]))
+print(sockMerchant(n: 9, ar: [10, 20, 20, 10, 10, 30, 50, 10, 20]))
 
